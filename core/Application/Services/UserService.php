@@ -5,6 +5,7 @@ namespace Core\Application\Services;
 
 
 use Core\Application\Contracts\IUserService;
+use Core\Application\Outputs\UserDTO;
 use Core\Domain\Entities\Role;
 use Core\Domain\Entities\User;
 use Core\Infrastructure\Repositories\UserRepository;
@@ -36,13 +37,13 @@ class UserService implements IUserService
 
   public function findUsers() : array
   {
-     return $this->user->findUsers();
+     return UserDTO::fromCollection($this->user->findUsers());
   }
   
   
   public function getUserById(int $id)
   {
-     return $this->user->getUserById($id);
+     return UserDTO::fromEntity($this->user->getUserById($id));
   }
   
   

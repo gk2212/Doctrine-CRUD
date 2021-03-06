@@ -5,6 +5,7 @@ namespace Core\Application\Services;
 
 
 use Core\Application\Contracts\IPostService;
+use Core\Application\Outputs\PostDTO;
 use Core\Domain\Entities\Post;
 use Core\Infrastructure\Repositories\PostRepository;
 
@@ -32,13 +33,13 @@ class PostService implements IPostService
 
   public function findPosts() : array
   {
-     return $this->post->findPosts();
+     return PostDTO::fromCollection($this->post->findPosts());
   }
   
 
   public function getPostById(int $id)
   {
-     return $this->post->getPostById($id);
+     return PostDTO::fromEntity($this->post->getPostById($id));
   }
 
 
