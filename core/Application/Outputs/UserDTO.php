@@ -8,6 +8,7 @@ use Core\Domain\Entities\User;
 class UserDTO extends BaseDTO
 {
 
+    public $id;
     public $firstname;
     public $lastname;
     public $email;
@@ -16,6 +17,7 @@ class UserDTO extends BaseDTO
   public static function fromEntity(User $user) : UserDTO
   {
       return new self([
+         'id' => $user->getId(),
          'firstname' => $user->getFirstName(),
          'lastname'  => $user->getLastName(),
          'email'     => $user->getEmail(),
