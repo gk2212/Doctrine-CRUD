@@ -8,7 +8,7 @@ use DateTime;
 
 /**
  * @ORM\Entity
- * @ORM\Table(name="post")
+ * @ORM\Table(name="posts")
  */
 class Post {
     /**
